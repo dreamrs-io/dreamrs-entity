@@ -2,11 +2,14 @@ syntax = "proto3";
 package dreamrs.entity.entity;
 
 // this line is used by starport scaffolding # genesis/proto/import
+import "entity/entity.proto";
 
 option go_package = "github.com/dreamrs/entity/x/entity/types";
 
 // GenesisState defines the entity module's genesis state.
 message GenesisState {
     // this line is used by starport scaffolding # genesis/proto/state
+		repeated Entity entityList = 1; // this line is used by starport scaffolding # genesis/proto/stateField
+		uint64 entityCount = 2; // this line is used by starport scaffolding # genesis/proto/stateField
     // this line is used by starport scaffolding # ibc/genesis/proto
 }

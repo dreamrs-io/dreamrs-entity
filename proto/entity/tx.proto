@@ -2,12 +2,59 @@ syntax = "proto3";
 package dreamrs.entity.entity;
 
 // this line is used by starport scaffolding # proto/tx/import
+import "entity/entity.proto";
 
 option go_package = "github.com/dreamrs/entity/x/entity/types";
 
 // Msg defines the Msg service.
 service Msg {
     // this line is used by starport scaffolding # proto/tx/rpc
+  rpc CreateEntity(MsgCreateEntity) returns (MsgCreateEntityResponse);
+  rpc UpdateEntity(MsgUpdateEntity) returns (MsgUpdateEntityResponse);
+  rpc DeleteEntity(MsgDeleteEntity) returns (MsgDeleteEntityResponse);
 }
 
 // this line is used by starport scaffolding # proto/tx/message
+message MsgCreateEntity {
+  string creator = 1;
+  string name = 2;
+  string founders = 3;
+  string entityGroup = 4;
+  string entityType = 5;
+  string geo = 6;
+  string urls = 7;
+  string initiateDate = 8;
+  string initiateDatePrecision = 9;
+  string jurisdictions = 10;
+  string industries = 11;
+  string tokenType = 12;
+}
+
+message MsgCreateEntityResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateEntity {
+  string creator = 1;
+  uint64 id = 2;
+  string name = 3;
+  string founders = 4;
+  string entityGroup = 5;
+  string entityType = 6;
+  string geo = 7;
+  string urls = 8;
+  string initiateDate = 9;
+  string initiateDatePrecision = 10;
+  string jurisdictions = 11;
+  string industries = 12;
+  string tokenType = 13;
+}
+
+message MsgUpdateEntityResponse { }
+
+message MsgDeleteEntity {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteEntityResponse { }

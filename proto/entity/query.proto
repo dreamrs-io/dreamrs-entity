@@ -4,12 +4,40 @@ package dreamrs.entity.entity;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "entity/entity.proto";
 
 option go_package = "github.com/dreamrs/entity/x/entity/types";
 
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+
+	// Queries a entity by id.
+	rpc Entity(QueryGetEntityRequest) returns (QueryGetEntityResponse) {
+		option (google.api.http).get = "/dreamrs/entity/entity/entity/{id}";
+	}
+
+	// Queries a list of entity items.
+	rpc EntityAll(QueryAllEntityRequest) returns (QueryAllEntityResponse) {
+		option (google.api.http).get = "/dreamrs/entity/entity/entity";
+	}
+
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetEntityRequest {
+	uint64 id = 1;
+}
+
+message QueryGetEntityResponse {
+	Entity Entity = 1;
+}
+
+message QueryAllEntityRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllEntityResponse {
+	repeated Entity Entity = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}

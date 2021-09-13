@@ -1,0 +1,22 @@
+syntax = "proto3";
+package dreamrs.entity.entity;
+
+option go_package = "github.com/dreamrs/entity/x/entity/types";
+
+import "gogoproto/gogo.proto";
+
+message Entity {
+  string creator = 1;
+  uint64 id = 2;
+  string name = 3; 
+  string founders = 4; 
+  string entityGroup = 5; 
+  string entityType = 6; 
+  string geo = 7; 
+  string urls = 8; 
+  string initiateDate = 9; 
+  string initiateDatePrecision = 10; 
+  string jurisdictions = 11; 
+  string industries = 12; 
+  string tokenType = 13; 
+}
