@@ -3,3 +3,5 @@ vue/dist
 release/
 accounts.md
 readme copy.md
+.entity/
+dist_dev/

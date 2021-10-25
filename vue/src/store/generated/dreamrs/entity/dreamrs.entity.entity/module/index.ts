@@ -4,15 +4,15 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
-import { MsgDeleteEntity } from "./types/entity/tx";
 import { MsgUpdateEntity } from "./types/entity/tx";
 import { MsgCreateEntity } from "./types/entity/tx";
+import { MsgDeleteEntity } from "./types/entity/tx";
 
 
 const types = [
-  ["/dreamrs.entity.entity.MsgDeleteEntity", MsgDeleteEntity],
   ["/dreamrs.entity.entity.MsgUpdateEntity", MsgUpdateEntity],
   ["/dreamrs.entity.entity.MsgCreateEntity", MsgCreateEntity],
+  ["/dreamrs.entity.entity.MsgDeleteEntity", MsgDeleteEntity],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -41,9 +41,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
-    msgDeleteEntity: (data: MsgDeleteEntity): EncodeObject => ({ typeUrl: "/dreamrs.entity.entity.MsgDeleteEntity", value: data }),
     msgUpdateEntity: (data: MsgUpdateEntity): EncodeObject => ({ typeUrl: "/dreamrs.entity.entity.MsgUpdateEntity", value: data }),
     msgCreateEntity: (data: MsgCreateEntity): EncodeObject => ({ typeUrl: "/dreamrs.entity.entity.MsgCreateEntity", value: data }),
+    msgDeleteEntity: (data: MsgDeleteEntity): EncodeObject => ({ typeUrl: "/dreamrs.entity.entity.MsgDeleteEntity", value: data }),
     
   };
 };

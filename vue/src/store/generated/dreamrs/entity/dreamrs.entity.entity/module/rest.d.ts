@@ -37,9 +37,7 @@ export interface EntityQueryGetEntityResponse {
     Entity?: EntityEntity;
 }
 export interface ProtobufAny {
-    typeUrl?: string;
-    /** @format byte */
-    value?: string;
+    "@type"?: string;
 }
 export interface RpcStatus {
     /** @format int32 */

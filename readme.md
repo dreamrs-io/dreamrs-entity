@@ -62,6 +62,7 @@ starport scaffold list entity name founders entityGroup entityType geo urls init
 ``` 
 
 Build and delploy to aws
+darwin/amd64 means macOS
 ```
 $ starport chain build --release -t aws:linux2
 #upload entity_darwin_amd64.tar.gz to ec2
@@ -104,7 +105,7 @@ $ ./entityd gentx main_node 100000000stake --chain-id dreamr-main-chain --keyrin
 $ ./entityd collect-gentxs
 
 5. enable rest api
-# modify ~/entity/config/app/toml
+# modify ~/.entity/config/app/toml
 [api]
 enable = true
 swagger = true
@@ -115,3 +116,9 @@ $  ./entityd start --rpc.laddr tcp://0.0.0.0:26657 --rpc.unsafe true
 ```
 
 
+## test account
+
+```
+dd : 
+find indicate prevent throw unit auto dwarf flight below culture surprise chimney drop rebuild horror version park dignity list blouse hammer cart repeat style
+```
