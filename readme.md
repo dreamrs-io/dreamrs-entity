@@ -113,8 +113,22 @@ address = "tcp://0.0.0.0:1317"
 
 6. start the node, run a localnet
 $  ./entityd start --rpc.laddr tcp://0.0.0.0:26657 --rpc.unsafe true
+
+7. restart node
+$ ps -ef | grep entityd
+$ kill -9 [pid]
+
 ```
 
+## ssl from namecheap for RPC HTTPS server
+Need to have all the Certificates ([domain].crt and [domain].ca-bundle) combined in a single '.crt' file.
+```
+$ cat your_domain.crt > your_domain_chain.crt ; echo >> your_domain_chain.crt ; cat your_domain.ca-bundle >> your_domain_chain.crt
+
+tls_cert_file = "[combined_certificate].crt"
+tls_key_file = "[private].key"
+
+```
 
 ## test account
 
